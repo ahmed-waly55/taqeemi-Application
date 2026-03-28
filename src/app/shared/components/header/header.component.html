@@ -37,7 +37,9 @@
         <!-- Language -->
         <div class="d-flex align-items-center gap-1 border rounded px-2 py-1">
           <i class="bi bi-globe"></i>
-          <span>AR/EN</span>
+          <span (click)="currentLan == 'ar'? currentLan = 'en' : currentLan = 'ar'">
+            {{ currentLan === 'ar' ? 'AR' : 'EN' }}
+          </span>
         </div>
 
         <!-- Login Button -->
@@ -89,7 +91,8 @@
         <!-- Language -->
         <div class="d-flex align-items-center gap-1 border rounded px-2 py-1">
           <i class="bi bi-globe"></i>
-          <span>AR/EN</span>
+          <button class="btn t-bg  px-4" [(ngModel)]="currentLan" (click)="currentLan">AR/EN</button>
+
         </div>
 
         <!-- Login Button -->

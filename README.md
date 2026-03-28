@@ -32,3 +32,13 @@ src/app/
 │       ├── users.component.ts
 │       └── reports.component.ts
 ```
+
+## Install ng i18n
+
+```
+ng add @angular/localize
+```
+
+```
+npm install @ngx-translate/core @ngx-translate/http-loader
+```
