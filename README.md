@@ -2,7 +2,8 @@
 
 ## project Structure
 
-`src/app/
+```
+src/app/
 │
 ├── core/
 │   ├── services/
@@ -29,4 +30,5 @@
 │   │
 │   └── admin/
 │       ├── users.component.ts
-│       └── reports.component.ts`
+│       └── reports.component.ts
+```
