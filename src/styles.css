@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
   background-color: #f8f9fa;
+  overflow-x: hidden;
 }
 .t-fs{
   font-size: 4.5rem;
@@ -11,4 +12,10 @@ body{
 }
 .bg-primary{
   background-color: #10a1b1 !important;
+}
+.text-primary{
+  color: #10a1b1 !important;
+}
+.radius-50{
+  border-radius: 50px;
 }
