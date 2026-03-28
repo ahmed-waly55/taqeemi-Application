@@ -2,3 +2,13 @@
 body{
   background-color: #f8f9fa;
 }
+.t-fs{
+  font-size: 4.5rem;
+}
+
+.t-bg-secondary{
+  background-color: #58CC02;
+}
+.bg-primary{
+  background-color: #10a1b1 !important;
+}

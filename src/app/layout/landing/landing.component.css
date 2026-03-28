@@ -1,0 +1,9 @@
+
+.t-alert{
+  width: fit-content;
+  border-radius: 50px;
+}
+.t-img{
+  border-radius: 30px;
+  box-shadow: 2px 2px 18px 20px rgb(24 58 56 / 12%);
+  }
