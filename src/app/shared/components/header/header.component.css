@@ -1,0 +1,9 @@
+.navbar-expand-lg .navbar-nav{
+  flex-direction: row-reverse;
+}
+.t-color{
+  color: #10A1B1;
+}
+.t-bg{
+  background-color: #10A1B1;
+}
