@@ -42,3 +42,9 @@ ng add @angular/localize
 ```
 npm install @ngx-translate/core @ngx-translate/http-loader
 ```
+
+## install animate.css
+
+```
+npm i animate.css
+```
