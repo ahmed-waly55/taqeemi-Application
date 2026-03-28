@@ -1,10 +1,11 @@
-<nav class="navbar navbar-expand-lg  shadow-sm py-3">
-  <div class="container">
+@if(!islogin){
+  <nav class="navbar navbar-expand-lg  shadow-sm py-3">
+  <div class="container-fluid px-5">
 
     <!-- Logo -->
-    <a class="navbar-brand fw-bold t-color" href="#">
+    <h1 class="navbar-brand fw-bold t-color fs-2">
       Taqeemi
-    </a>
+    </h1>
 
     <!-- Toggle (Mobile) -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -17,13 +18,13 @@
       <!-- Center Links -->
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-4">
         <li class="nav-item">
-          <a class="nav-link fw-semibold" href="#">الرئيسية</a>
+          <a class="nav-link fw-semibold" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-semibold" href="#">المسارات</a>
+          <a class="nav-link fw-semibold" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-semibold" href="#">الاختبارات</a>
+          <a class="nav-link fw-semibold" href="#">Exam</a>
         </li>
       </ul>
 
@@ -36,15 +37,72 @@
         <!-- Language -->
         <div class="d-flex align-items-center gap-1 border rounded px-2 py-1">
           <i class="bi bi-globe"></i>
-          <span>English</span>
+          <span>AR/EN</span>
         </div>
 
         <!-- Login Button -->
-        <button class="btn t-bg text-white px-4">
-          تسجيل الدخول
+        <button class="btn t-bg  px-4" (click)="islogin = true">
+         Login / Sign Up
         </button>
 
       </div>
     </div>
   </div>
 </nav>
+}
+@else {
+  <nav class="navbar navbar-expand-lg  shadow-sm py-3">
+  <div class="container-fluid px-5">
+
+    <!-- Logo -->
+    <h1 class="navbar-brand fw-bold t-color fs-2">
+      Taqeemi
+    </h1>
+
+    <!-- Toggle (Mobile) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <!-- Center Links -->
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-4">
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" href="#">Exam</a>
+        </li>
+      </ul>
+
+      <!-- Right Side -->
+      <div class="d-flex align-items-center gap-3">
+
+        <!-- Notification Icon -->
+        <i class="bi bi-bell fs-5"></i>
+
+        <!-- Language -->
+        <div class="d-flex align-items-center gap-1 border rounded px-2 py-1">
+          <i class="bi bi-globe"></i>
+          <span>AR/EN</span>
+        </div>
+
+        <!-- Login Button -->
+        <button class="btn t-bg  px-4" (click)="islogin = false">
+         logout
+        </button>
+
+      </div>
+    </div>
+  </div>
+</nav>
+}
+
+
+
+
