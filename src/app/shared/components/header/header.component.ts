@@ -10,7 +10,7 @@ import { RouterLinkActive, RouterLink } from "@angular/router";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-islogin:boolean = false;
+islogin:boolean = true;
 currentLan:string = 'en';
 
 }
