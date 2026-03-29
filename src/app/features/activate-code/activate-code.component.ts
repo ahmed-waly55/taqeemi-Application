@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-activate-code',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './activate-code.component.html',
-  styleUrl: './activate-code.component.css'
+    selector: 'app-activate-code',
+    imports: [FormsModule],
+    templateUrl: './activate-code.component.html',
+    styleUrl: './activate-code.component.css'
 })
 export class ActivateCodeComponent {
 activationCode: string = '';
