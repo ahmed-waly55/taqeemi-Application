@@ -48,3 +48,7 @@ npm install @ngx-translate/core @ngx-translate/http-loader
 ```
 npm i animate.css
 ```
+
+# Preview Web Apllication
+
+<a href="https://taqeemi-application.vercel.app/">Preview</a>
