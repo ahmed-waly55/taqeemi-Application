@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from "../../../shared/components/header/header.component";
 
 @Component({
     selector: 'app-sign-up',
-    imports: [RouterLink],
+    imports: [RouterLink, HeaderComponent],
     templateUrl: './sign-up.component.html',
     styleUrl: './sign-up.component.css'
 })

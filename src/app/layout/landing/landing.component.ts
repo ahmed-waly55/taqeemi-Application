@@ -2,10 +2,11 @@ import { DecimalPipe } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common'
 import { RouterLink } from "@angular/router";
+import { HeaderComponent } from "../../shared/components/header/header.component";
 
 @Component({
     selector: 'app-landing',
-    imports: [DecimalPipe, RouterLink],
+    imports: [DecimalPipe, RouterLink, HeaderComponent],
     templateUrl: './landing.component.html',
     styleUrl: './landing.component.css'
 })

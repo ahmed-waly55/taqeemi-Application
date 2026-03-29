@@ -1,5 +1,5 @@
 @if(!islogin){
-  <nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white col-12 ">
+  <nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white " >
   <div class="container-fluid px-5">
 
     <!-- Logo -->
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Login Button -->
-        <button class="btn t-bg  px-4 "  routerLink="/login">
+        <button class="btn t-bg  px-4 "  routerLink="/login" >
           <i class="fa-solid fa-right-to-bracket"></i>
          Login / Sign Up
         </button>
@@ -52,7 +52,7 @@
 </nav>
 }
 @else {
- <nav class="navbar navbar-expand-lg shadow-sm py-3 fixed-top bg-white" [class]="currentLan === 'ar'? 'ar' : 'en'">
+ <nav  class="navbar navbar-expand-lg shadow-sm py-3 fixed-top bg-white" [ngClass]="col" [class]="currentLan === 'ar'? 'ar' : 'en' ">
   <div class="container-fluid px-md-5">
 
     <button class="navbar-toggler border-0 shadow-none" type="button"
@@ -69,6 +69,7 @@
         <li class="nav-item"><a class="nav-link active-link" routerLink="/home" routerLinkActive="active">الرئيسية</a></li>
         <li class="nav-item"><a class="nav-link text-dark" routerLink="/tracks" routerLinkActive="active">المسارات</a></li>
         <li class="nav-item"><a class="nav-link text-dark" routerLink="/exams" routerLinkActive="active">الاختبارات</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" routerLink="/dashboard" routerLinkActive="active">لوحة التحكم</a></li>
       </ul>
     </div>
 
@@ -85,10 +86,10 @@
           <span class="fw-bold d-block small lh-1">أحمد محمد</span>
         </div>
       </div>
-      <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 p-2 t-profile">
+      <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 p-2 t-profile-dropdown">
         <li><a class="dropdown-item rounded-2 py-2" routerLink="/profile">ملفي الشخصي</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item rounded-2 py-2 text-danger" href="#">تسجيل الخروج</a></li>
+        <li><a class="dropdown-item rounded-2 py-2 text-danger" (click)="logout()">تسجيل الخروج</a></li>
       </ul>
     </div>
 

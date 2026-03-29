@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="d-flex">
+
+  <!-- Main Content -->
+  <div class="flex-grow-1 p-3">
+    <app-header [col]="'col-10'"></app-header>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="bg-white border-start position-fixed top-0 end-0 vh-100 p-3 col-2" >
+    <h5>Dashboard</h5>
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+    </ul>
+  </aside>
+
+</div>
