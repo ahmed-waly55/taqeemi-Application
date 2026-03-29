@@ -1,0 +1,52 @@
+<div class="auth-wrapper d-flex align-items-center justify-content-center">
+  <div class="auth-box">
+    <div class="brand-section text-center">
+      <div class="logo-wrapper">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3 class="mt-3 fw-bold color-primary">منصة تقييمي التعليمية</h3>
+      <p class="text-muted small">بوابتك للتميز الأكاديمي والامتحانات الذكية</p>
+    </div>
+
+    <div class="auth-nav d-flex mb-4">
+      <button class="nav-btn active">تسجيل دخول</button>
+      <button class="nav-btn" routerLink="/signup">حساب جديد</button>
+    </div>
+
+    <form  (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label class="form-label">البريد الإلكتروني أو كود الطالب</label>
+        <div class="input-group-custom">
+          <i class="far fa-user"></i>
+          <input type="email" formControlName="email"
+                 class="form-control" placeholder="example@edu.com"
+                 [class.is-invalid]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <div class="d-flex justify-content-between">
+          <label class="form-label">كلمة المرور</label>
+          <a href="#" class="forgot-link">نسيت كلمة السر؟</a>
+        </div>
+        <div class="input-group-custom">
+          <i class="fas fa-lock"></i>
+          <input [type]="showPassword ? 'text' : 'password'"
+                 formControlName="password" class="form-control" placeholder="••••••••">
+          <i class="far"
+             (click)="showPassword = !showPassword" class="toggle-password"></i>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary-grad w-100 mt-4">
+        ابدأ التعلم الآن <i class="fas fa-sign-in-alt ms-2"></i>
+      </button>
+    </form>
+
+
+
+    <p class="text-center mt-4 mb-0 small text-muted">
+      واجهت مشكلة؟ <a href="#" class="help-link">تواصل مع الدعم الفني</a>
+    </p>
+  </div>
+</div>

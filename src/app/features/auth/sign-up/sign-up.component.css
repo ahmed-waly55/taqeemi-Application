@@ -1,0 +1,100 @@
+:host {
+  --primary-color: #2c3e50;
+  --accent-color: #17a2b8;
+  --bg-soft: #f4f7f6;
+}
+
+.auth-wrapper{
+  min-height: 100vh;
+}
+.auth-box {
+  background: white;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.logo-wrapper {
+  width: 70px; height: 70px;
+  background: linear-gradient(45deg, var(--accent-color), #20c997);
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  color: white; font-size: 30px;
+  box-shadow: 0 10px 20px rgba(23, 162, 184, 0.3);
+}
+
+.auth-nav {
+  background: #f1f3f5;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.nav-btn {
+  flex: 1; border: none; background: transparent;
+  padding: 10px; border-radius: 10px;
+  font-weight: 600; color: #6c757d; transition: 0.3s;
+}
+
+.nav-btn.active {
+  background: white; color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.input-group-custom {
+  position: relative;
+  display: flex; align-items: center;
+}
+
+.input-group-custom i:not(.toggle-password) {
+  position: absolute; right: 15px; color: #adb5bd;
+}
+
+.input-group-custom .form-control {
+  padding: 12px 45px 12px 15px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+}
+
+.input-group-custom .form-control:focus {
+  border-color: var(--accent-color);
+  background: white; box-shadow: none;
+}
+
+.toggle-password {
+  position: absolute; left: 15px; cursor: pointer; color: #6c757d;
+}
+
+.btn-primary-grad {
+  background: linear-gradient(to right, #17a2b8, #20c997);
+  border: none; border-radius: 12px;
+  padding: 14px; font-weight: bold; color: white;
+  transition: 0.3s;
+}
+
+.btn-primary-grad:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
+}
+
+.divider {
+  margin: 25px 0; text-align: center; position: relative;
+}
+
+.divider::before {
+  content: ""; position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px; background: #eee;
+}
+
+.divider span {
+  background: white; padding: 0 15px; position: relative;
+  color: #999; font-size: 13px;
+}
+
+.social-item {
+  border: 1px solid #eee !important; border-radius: 12px;
+  padding: 10px; font-weight: 500;
+}
