@@ -1,5 +1,5 @@
 @if(!islogin){
-  <nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white ">
+  <nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white col-12 ">
   <div class="container-fluid px-5">
 
     <!-- Logo -->
@@ -52,58 +52,72 @@
 </nav>
 }
 @else {
-  <nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white">
-  <div class="container-fluid px-5">
+ <nav class="navbar navbar-expand-lg shadow-sm py-3 fixed-top bg-white" [class]="currentLan === 'ar'? 'ar' : 'en'">
+  <div class="container-fluid px-md-5">
 
-    <!-- Logo -->
-    <a class="navbar-brand fw-bold t-color fs-2" routerLink="/home">
-      Taqeemi
-    </a>
-
-    <!-- Toggle (Mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Content -->
-    <div class="collapse navbar-collapse" id="navbarContent">
+    <a class="navbar-brand fw-bold t-color fs-2 mx-auto mx-lg-0" routerLink="/home">
+      Taqeemi
+    </a>
 
-      <!-- Center Links -->
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-4">
-        <li class="nav-item">
-          <a class="nav-link fw-semibold" routerLink="/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fw-semibold" routerLink="/dashboard">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fw-semibold" routerLink="/exam">Exam</a>
-        </li>
+    <div class="collapse navbar-collapse d-none d-lg-block flex-grow-0">
+      <ul class="navbar-nav d-flex flex-row gap-4 fw-bold">
+        <li class="nav-item"><a class="nav-link active-link" routerLink="/home" routerLinkActive="active">الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" routerLink="/tracks" routerLinkActive="active">المسارات</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" routerLink="/exams" routerLinkActive="active">الاختبارات</a></li>
       </ul>
-
-      <!-- Right Side -->
-      <div class="d-flex align-items-center gap-3">
-
-        <!-- Notification Icon -->
-        <i class="bi bi-bell fs-5"></i>
-
-        <!-- Language -->
-         <div class="d-flex align-items-center gap-1 border rounded px-2 py-1">
-          <i class="bi bi-globe"></i>
-          <span (click)="currentLan == 'ar'? currentLan = 'en' : currentLan = 'ar'">
-            {{ currentLan === 'ar' ? 'AR' : 'EN' }}
-          </span>
-        </div>
-
-        <!-- Login Button -->
-        <button class="btn t-bg  px-4" (click)="islogin = false" >
-         logout
-        </button>
-
-      </div>
     </div>
+
+    <div class="flex-grow-1 mx-2 mx-md-4 position-relative search-wrapper">
+      <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+      <input type="text" class="form-control rounded-pill bg-light border-0 ps-5" placeholder="بحث...">
+    </div>
+
+    <div class="dropdown">
+      <div class="d-flex align-items-center cursor-pointer border rounded-pill p-1 pe-2"
+           data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="assets/user.png" class="rounded-circle" width="35" height="35" alt="User">
+        <div class="ms-2 d-none d-md-block text-end me-1">
+          <span class="fw-bold d-block small lh-1">أحمد محمد</span>
+        </div>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 p-2 t-profile">
+        <li><a class="dropdown-item rounded-2 py-2" routerLink="/profile">ملفي الشخصي</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item rounded-2 py-2 text-danger" href="#">تسجيل الخروج</a></li>
+      </ul>
+    </div>
+
   </div>
 </nav>
+
+<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+  <div class="offcanvas-header border-bottom py-4">
+    <h5 class="offcanvas-title fw-bold text-teal" id="mobileSidebarLabel">تقييمي - Taqeemi</h5>
+    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="list-group list-group-flush">
+      <a routerLink="/home" routerLinkActive="active-mobile" class="list-group-item list-group-item-action py-3 border-0 px-4" data-bs-dismiss="offcanvas">
+        <i class="fas fa-home me-3"></i> الرئيسية
+      </a>
+      <a routerLink="/tracks" routerLinkActive="active-mobile" class="list-group-item list-group-item-action py-3 border-0 px-4" data-bs-dismiss="offcanvas">
+        <i class="fas fa-route me-3"></i> المسارات
+      </a>
+      <a routerLink="/exams" routerLinkActive="active-mobile" class="list-group-item list-group-item-action py-3 border-0 px-4" data-bs-dismiss="offcanvas">
+        <i class="fas fa-file-alt me-3"></i> الاختبارات
+      </a>
+      <hr class="m-0 opacity-25">
+      <a routerLink="/notifications" routerLinkActive="active-mobile" class="list-group-item list-group-item-action py-3 border-0 px-4" data-bs-dismiss="offcanvas">
+        <i class="far fa-bell me-3"></i> الإشعارات
+      </a>
+    </ul>
+  </div>
+</div>
 }
 
 

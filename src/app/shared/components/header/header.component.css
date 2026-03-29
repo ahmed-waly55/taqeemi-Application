@@ -14,3 +14,49 @@
   background: #f9fbfc;
 }
 
+
+.ar{
+  direction: rtl;
+}
+.en{
+  direction: ltr;
+}
+
+
+.text-teal { color: #2ab7a9; }
+
+.active-link {
+  color: #2ab7a9 !important;
+  border-bottom: 2px solid #2ab7a9;
+}
+
+.search-wrapper { max-width: 450px; }
+
+.cursor-pointer { cursor: pointer; }
+
+/* ضبط اتجاه القائمة الجانبية لتفتح من اليمين لو الموقع عربي */
+[dir="rtl"] .offcanvas-start {
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+  border-left: 1px solid rgba(0,0,0,.2);
+  border-right: none;
+}
+@media (min-width: 768px) {
+.t-profile-dropdown{
+  right: -100px !important;
+  left: auto;
+}
+
+
+}
+[dir="rtl"] .offcanvas.show:not(.hiding),
+[dir="rtl"] .offcanvas.showing {
+  transform: none;
+}
+
+/* شكل الروابط داخل المنيو الجانبي */
+.list-group-item-action:hover {
+  background-color: #f0fdfa;
+  color: #2ab7a9;
+}

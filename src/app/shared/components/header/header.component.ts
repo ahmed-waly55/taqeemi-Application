@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLinkActive, RouterLink } from "@angular/router";
+import { RouterLink } from "@angular/router";
 
 @Component({
     selector: 'app-header',
@@ -9,7 +9,12 @@ import { RouterLinkActive, RouterLink } from "@angular/router";
     styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+isMobile(): boolean {
+throw new Error('Method not implemented.');
+}
 islogin:boolean = true;
-currentLan:string = 'en';
+currentLan:string = 'ar';
+
+
 
 }
