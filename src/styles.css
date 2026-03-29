@@ -2,6 +2,7 @@
 body{
   background-color: #f8f9fa;
   overflow-x: hidden;
+  padding-top: 100px;
 }
 .t-fs{
   font-size: 4.5rem;
