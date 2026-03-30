@@ -1,11 +1,11 @@
 import { isPlatformBrowser, NgClass } from '@angular/common';
 import { Component, Inject, Input, OnInit, PLATFORM_ID, } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
     selector: 'app-header',
-    imports: [FormsModule, RouterLink, NgClass],
+    imports: [FormsModule, RouterLink, NgClass,RouterLinkActive],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
 })
