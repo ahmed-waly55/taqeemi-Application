@@ -1,24 +1,89 @@
-<div class="d-flex">
+<div class="dashboard-container" dir="rtl">
 
-  <!-- Main Content -->
-  <div class="flex-grow-1 p-3">
-    <app-header [col]="'col-10'"></app-header>
+  <header class="header-glass mb-4">
+    <div class="container-fluid">
+      <app-header [col]="'col-12'"></app-header>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row g-4">
+
+      <main class="col-lg-9 col-xl-10 order-2 order-lg-1">
+        <div class="content-card p-4">
+          <h2 class="fw-bold mb-4">مرحباً بك مجدداً 👋</h2>
+          <div class="placeholder-content" style="height: 1000px;">
+            <p class="text-muted">ابدأ بإضافة محتواك هنا...</p>
+          </div>
+        </div>
+      </main>
+
+      <aside class="col-lg-3 col-xl-2 d-none d-lg-block order-1 order-lg-2">
+        <div class="sidebar-modern sticky-top">
+
+          <div class="user-profile-widget mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="avatar-wrapper">
+                <!-- <img src="../../../assets/user.png" alt="User" class="w-50 rounded-circle"> -->
+              </div>
+              <div>
+                <h6 class="mb-0 fw-bold text-dark">أحمد منصور</h6>
+                <span class="badge bg-soft-primary text-primary">مستوى 12</span>
+              </div>
+            </div>
+          </div>
+
+          <nav class="side-nav">
+            <ul class="nav flex-column gap-2">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <i class="fas fa-home-alt"></i>
+                  <span>الرئيسية</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-book-reader"></i>
+                  <span>كورساتي</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-chart-line"></i>
+                  <span>الإحصائيات</span>
+                </a>
+              </li>
+              <li class="nav-item mt-4">
+                <a class="nav-link settings-link" href="#">
+                  <i class="fas fa-user-cog"></i>
+                  <span>الإعدادات</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+      </aside>
+
+    </div>
   </div>
 
-  <!-- Sidebar -->
-  <aside class="bg-white border-start position-fixed top-0 end-0 vh-100 p-3 col-2" >
-    <h5>Dashboard</h5>
-    <ul class="nav flex-column mt-4">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Users</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
-      </li>
-    </ul>
-  </aside>
-
+  <div class="mobile-nav-wrapper d-lg-none">
+    <div class="mobile-nav-blur">
+      <div class="d-flex justify-content-around align-items-center h-100">
+        <a href="#" class="nav-link active">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fas fa-book-open"></i>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fas fa-trophy"></i>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fas fa-cog"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
