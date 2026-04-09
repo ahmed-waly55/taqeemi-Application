@@ -1,1 +1,14 @@
-<p>stat-card works!</p>
+<div class="stat-card-wrapper" [style.border-bottom]="'4px solid ' + color">
+  <div class="card-body-content d-flex align-items-center justify-content-between p-3">
+
+    <div class="icon-container d-flex align-items-center justify-content-center" [style.background-color]="bgColor">
+      <i [class]="icon" [style.color]="color"></i>
+    </div>
+
+    <div class="text-section text-end m-3">
+      <p class="stat-label mb-1">{{ title }}</p>
+      <h2 class="stat-value mb-0 fw-bold">{{ value | number }}</h2>
+    </div>
+
+  </div>
+</div>

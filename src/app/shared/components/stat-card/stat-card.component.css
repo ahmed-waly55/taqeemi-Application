@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.stat-card-wrapper {
+  background: #ffffff;
+  border-radius: 25px; /* حواف دائرية جداً مثل الصورة */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* ظل ناعم جداً */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+}
+
+.stat-card-wrapper:hover {
+  transform: translateY(-5px); /* حركة بسيطة عند التمرير */
+}
+
+/* حاوية الأيقونة */
+.icon-container {
+  width: 55px;
+  height: 55px;
+  border-radius: 15px; /* حواف أيقونة ناعمة */
+  font-size: 1.5rem;
+}
+
+/* النصوص */
+.stat-label {
+  color: #7d8da1; /* لون رمادي هادئ */
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  color: #1e293b; /* لون داكن للأرقام */
+  font-size: 1.8rem;
+  letter-spacing: -1px;
+}
+
+/* دعم الشاشات الصغيرة */
+@media (max-width: 576px) {
+  .stat-value {
+    font-size: 1.4rem;
+  }
+}

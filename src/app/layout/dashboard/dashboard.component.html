@@ -13,7 +13,61 @@
         <div class="content-card p-4">
           <h2 class="fw-bold mb-4">مرحباً بك مجدداً 👋</h2>
           <div class="placeholder-content" style="height: 1000px;">
-            <p class="text-muted">ابدأ بإضافة محتواك هنا...</p>
+
+        <div class="row">
+  <div class="col-md-4">
+    <app-stat-card
+      title="إجمالي المستخدمين"
+      [value]="1482"
+      icon="fas fa-users"
+      color="#0d9488"
+      bgColor="#ccfbf1">
+    </app-stat-card>
+  </div>
+
+  <div class="col-md-4">
+    <app-stat-card
+      title="الطلاب النشطون"
+      [value]="1240"
+      icon="fas fa-user-graduate"
+      color="#6366f1"
+      bgColor="#e0e7ff">
+    </app-stat-card>
+  </div>
+
+  <div class="col-md-4">
+    <app-stat-card
+      title="المعلمون"
+      [value]="242"
+      icon="fas fa-chalkboard-teacher"
+      color="#d97706"
+      bgColor="#fef3c7">
+    </app-stat-card>
+  </div>
+        </div>
+
+        <div class="user-management-section mt-5">
+          <h3 class="fw-bold mb-4">إدارة المستخدمين</h3>
+          <div class="user-list">
+            </div>
+            <app-user-row
+            [user]="{
+              name: 'سارة أحمد',
+              email: 'a@a.a'
+            }"
+              >
+            </app-user-row>
+
+            <app-user-row
+            [user]="{
+              name: 'سارة أحمد',
+              email: 'a@a.a'
+            }"
+              >
+          </app-user-row>
+
+            </div>
+
           </div>
         </div>
       </main>

@@ -1,0 +1,55 @@
+<div class="user-row-container d-flex align-items-center mb-3 bg-white p-3" [style.border-right]="user.isActive ? '5px solid #22d3ee' : '5px solid #f43f5e'">
+
+  <div class="action-buttons d-flex gap-2 pe-3 border-start">
+    <button (click)="onDelete.emit(user)" class="action-btn btn-ban" title="حظر">
+      <i class="fas fa-ban"></i>
+    </button>
+    <button (click)="onReset.emit(user)" class="action-btn btn-reset" title="إعادة تعيين">
+      <i class="fas fa-undo"></i>
+    </button>
+    <button (click)="onEdit.emit(user)" class="action-btn btn-edit" title="تعديل">
+      <i class="fas fa-pen"></i>
+    </button>
+  </div>
+
+  <div class="status-section px-4">
+    <div class="badge-custom" [ngClass]="user.isActive ? 'active-bg' : 'inactive-bg'">
+      {{ user.isActive ? 'نشط' : 'موقوف' }}
+    </div>
+    <small class="label-text">الحالة</small>
+  </div>
+
+  <div class="activity-section flex-grow-1 px-4 text-center">
+    <div class="progress-wrapper mb-1">
+      <div class="progress" style="height: 8px; border-radius: 10px;">
+        <div class="progress-bar custom-progress-bar"
+             role="progressbar"
+             [style.width]="user.activity + '%'"
+             [style.background-color]="user.isActive ? '#0d9488' : '#cbd5e1'">
+        </div>
+      </div>
+    </div>
+    <small class="label-text">إجمالي النشاط</small>
+  </div>
+
+  <div class="date-section px-4 text-center">
+    <p class="mb-0 fw-bold text-dark">{{ user.lastSeen }}</p>
+    <small class="label-text">آخر ظهور</small>
+  </div>
+
+  <div class="date-section px-4 text-center border-start border-end">
+    <p class="mb-0 fw-bold text-dark">{{ user.joinDate }}</p>
+    <small class="label-text">تاريخ الانضمام</small>
+  </div>
+
+  <div class="user-info-section d-flex align-items-center gap-3 ps-3">
+    <div class="text-end">
+      <h6 class="mb-0 fw-bold user-name">{{ user.name }}</h6>
+      <small class="user-email text-muted">{{ user.email }}</small>
+    </div>
+    <div class="avatar-container">
+      <img [src]="user.avatar || 'assets/default-avatar.png'" alt="User Avatar" class="rounded-circle shadow-sm">
+    </div>
+  </div>
+
+</div>
