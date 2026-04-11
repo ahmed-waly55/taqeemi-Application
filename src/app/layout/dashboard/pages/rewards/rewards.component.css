@@ -1,0 +1,75 @@
+:host {
+  --cyan: #008b8b;
+  --bg: #f8fafc;
+}
+
+.rewards-page {
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+/* الهيدر الملون */
+.points-header {
+  background: linear-gradient(135deg, var(--cyan), #00b4b4);
+  position: relative;
+  overflow: hidden;
+}
+
+.text-cyan { color: var(--cyan); }
+.btn-cyan { background-color: var(--cyan); color: white; }
+.btn-cyan:hover { background-color: #007373; color: white; }
+
+/* تصميم كارت الهدية */
+.reward-card {
+  transition: all 0.3s ease;
+  border-top: 5px solid transparent !important;
+}
+
+.reward-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.reward-card.insufficient {
+  opacity: 0.85;
+}
+
+.reward-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+}
+
+/* شريط التقدم */
+.progress {
+  background-color: #e9ecef;
+  overflow: visible;
+  border-radius: 10px;
+}
+
+.bg-cyan { background-color: var(--cyan); }
+
+/* أنيميشن */
+.animate-in { animation: fadeInDown 0.5s ease-out; }
+.animate-in-delayed { animation: fadeInUp 0.7s ease-out; opacity: 1; }
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* تحسين الموبايل */
+@media (max-width: 768px) {
+  .points-header { text-align: center; }
+  .reward-card { margin-bottom: 10px; }
+}

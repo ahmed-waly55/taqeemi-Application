@@ -1,0 +1,101 @@
+<div class="leaderboard-page py-4" dir="rtl">
+  <div class="container-fluid container-lg">
+
+    <div class="text-center mb-5 animate-in">
+      <h1 class="fw-bold text-dark header-title">🏆 لوحة الشرف</h1>
+      <p class="text-muted">تعرف على قادة منصة "تقييمي" الأفضل أداءً</p>
+    </div>
+
+    <div class="row g-3 podium-section justify-content-center mb-5 animate-in-delayed">
+
+      <div class="col-md-4 col-12 order-md-1 order-2">
+        <div class="card top-card second-place p-4 h-100 border-0 shadow-sm rounded-4 text-center">
+          <div class="rank-badge">#2</div>
+          <div class="avatar-large shadow mx-auto">{{ topThree()[1].avatar }}</div>
+          <h5 class="fw-bold mt-3 mb-1 text-dark text-truncate">{{ topThree()[1].name }}</h5>
+          <div class="points-badge bg-white shadow-sm rounded-pill px-3 py-1">
+            <span class="fw-bold text-cyan">{{ topThree()[1].points }}</span>
+            <small class="text-muted"> نقطة</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12 order-md-2 order-1">
+        <div class="card top-card first-place p-4 p-md-5 h-100 border-0 shadow rounded-4 text-center">
+          <div class="crown"><i class="fas fa-crown"></i></div>
+          <div class="rank-badge gold">#1</div>
+          <div class="avatar-large shadow mx-auto">{{ topThree()[0].avatar }}</div>
+          <h4 class="fw-bold mt-3 mb-2 text-dark text-truncate">{{ topThree()[0].name }}</h4>
+          <div class="points-badge bg-white shadow-sm rounded-pill px-3 py-1 mb-2">
+            <span class="fw-bold text-cyan fs-5">{{ topThree()[0].points }}</span>
+            <small class="text-muted"> نقطة</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12 order-md-3 order-3">
+        <div class="card top-card third-place p-4 h-100 border-0 shadow-sm rounded-4 text-center">
+          <div class="rank-badge">#3</div>
+          <div class="avatar-large shadow mx-auto">{{ topThree()[2].avatar }}</div>
+          <h5 class="fw-bold mt-3 mb-1 text-dark text-truncate">{{ topThree()[2].name }}</h5>
+          <div class="points-badge bg-white shadow-sm rounded-pill px-3 py-1">
+            <span class="fw-bold text-cyan">{{ topThree()[2].points }}</span>
+            <small class="text-muted"> نقطة</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leaderboard-list mt-5 animate-in-slow">
+      @for (student of students(); track student.id; let i = $index) {
+        <div class="card student-item-card border-0 shadow-sm rounded-pill p-2 mb-3 align-items-center"
+             [class.top-three]="i < 3"
+             [class.first]="i === 0">
+          <div class="d-flex align-items-center w-100">
+
+            <div class="rank-section text-center p-2 rounded-circle ms-2" [class.rank-box]="i < 3">
+              #{{ i + 1 }}
+            </div>
+
+            <div class="d-flex align-items-center flex-grow-1 mx-2">
+              <span class="avatar-small me-2 shadow-sm">{{ student.avatar }}</span>
+              <div class="student-info">
+                <h6 class="fw-bold mb-0 text-truncate">{{ student.name }}</h6>
+                <small class="text-muted level-text">{{ student.level }}</small>
+              </div>
+            </div>
+
+            <div class="points-section text-center d-flex align-items-center gap-2 me-auto">
+              <div class="d-none d-md-block">
+                @if (i !== 0) {
+                  <span class="text-danger small fw-medium text-nowrap">
+                    <i class="fas fa-caret-down me-1"></i> -{{ getDiffWithTop(student.points) }}
+                  </span>
+                } @else {
+                  <span class="text-success small fw-medium text-nowrap">المتصدر</span>
+                }
+              </div>
+              <div class="fw-bold text-cyan points-text">{{ student.points }}</div>
+            </div>
+
+            <div class="trend-icon ms-2 p-2 rounded-circle"
+                 [ngClass]="{
+                   'bg-success-light text-success': student.trend === 'up',
+                   'bg-danger-light text-danger': student.trend === 'down',
+                   'bg-light text-muted': student.trend === 'same'
+                 }">
+              @if (student.trend === 'up') {
+                <i class="fas fa-arrow-up"></i>
+              } @else if (student.trend === 'down') {
+                <i class="fas fa-arrow-down"></i>
+              } @else {
+                <i class="fas fa-minus"></i>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</div>

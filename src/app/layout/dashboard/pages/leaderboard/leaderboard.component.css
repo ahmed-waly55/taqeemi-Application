@@ -1,0 +1,105 @@
+:host {
+  --cyan: #008b8b;
+  --gold: #ffc107;
+  --silver: #bdc3c7;
+  --bronze: #cd7f32;
+  --bg: #f8fbff;
+}
+
+.leaderboard-page {
+  background-color: var(--bg);
+  min-height: 100vh;
+  color: #333;
+}
+
+.text-cyan { color: var(--cyan); }
+.header-title { text-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+/* --- تصميم كروت الأوائل (Podium Section) --- */
+.top-card {
+  transition: all 0.4s ease;
+  border-bottom: 6px solid transparent !important;
+  position: relative;
+}
+
+.top-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+.avatar-large {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: white; border: 4px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; margin-top: 10px;
+}
+
+/* تخصيص المراكز */
+.first-place { border-color: var(--gold) !important; z-index: 5; background: #fffdf6; }
+.second-place { border-color: var(--silver) !important; }
+.third-place { border-color: var(--bronze) !important; }
+
+.first-place .avatar-large { border-color: var(--gold); }
+.rank-badge { position: absolute; top: 15px; left: 15px; font-weight: bold; }
+.rank-badge.gold { color: var(--gold); font-size: 1.2rem; }
+
+.crown { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 2.5rem; color: var(--gold); text-shadow: 0 4px 10px rgba(255,193,7,0.3); }
+
+/* --- تصميم القائمة (List Section) --- */
+.student-item-card {
+  transition: 0.2s ease;
+  border: 2px solid transparent !important;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.student-item-card:hover:not(.first) {
+  background-color: #fff;
+  border-color: var(--cyan) !important;
+}
+
+.student-item-card.top-three { background-color: #fff; }
+.student-item-card.first {
+  background-color: #fcf9f2;
+  border: 3px solid var(--gold) !important;
+  box-shadow: 0 5px 15px rgba(255,193,7,0.15) !important;
+}
+
+/* العناصر داخل الكارت */
+.avatar-small {
+  width: 45px; height: 45px; border-radius: 50%;
+  background: white; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+
+.rank-section { font-weight: bold; color: #7f8c8d; width: 40px; }
+.top-three .rank-section.rank-box { color: var(--cyan); }
+.first .rank-section.rank-box { color: var(--gold); }
+
+.bg-success-light { background-color: #e8fdf0; }
+.bg-danger-light { background-color: #fff1f1; }
+
+.trend-icon { font-size: 12px; }
+
+/* تحسين للهواتف (Mobile Optimization) */
+@media (max-width: 767.98px) {
+  .podium-section .col-12 { margin-bottom: 1.5rem; }
+  .first-place .avatar-large { width: 110px; height: 110px; font-size: 3.5rem; }
+
+  /* في القائمة الرأسية بالموبايل */
+  .student-item-card { border-radius: 15px !important; }
+  .student-info h6 { font-size: 0.9rem; max-width: 150px; }
+  .points-text { font-size: 0.9rem; }
+  .points-section { gap: 1px; }
+  .points-section .d-md-block { display: none; } /* إخفاء فرق النقاط على الموبايل لتوفير مساحة */
+}
+
+/* Animations */
+.animate-in { animation: fadeInDown 0.5s ease-out; }
+.animate-in-delayed { animation: fadeInDown 0.7s ease-out; opacity: 1; }
+.animate-in-slow { animation: fadeInDown 1s ease-out; opacity: 1; }
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
