@@ -30,11 +30,10 @@
   border-bottom: 2px solid #2ab7a9;
 }
 
-.search-wrapper { max-width: 450px; }
+.search-wrapper { max-width: 400px; }
 
 .cursor-pointer { cursor: pointer; }
 
-/* ضبط اتجاه القائمة الجانبية لتفتح من اليمين لو الموقع عربي */
 [dir="rtl"] .offcanvas-start {
   right: 0;
   left: auto;
@@ -44,8 +43,8 @@
 }
 @media (min-width: 768px) {
 .t-profile-dropdown{
-  right: -100px !important;
-  left: auto;
+  /* right: -100px !important; */
+  /* left: auto; */
 }
 
 
@@ -60,3 +59,8 @@
   background-color: #f0fdfa;
   color: #2ab7a9;
 }
+
+
+
+
+

@@ -1,5 +1,5 @@
 @if(!islogin){
-  <nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white " >
+<nav class="navbar navbar-expand-lg  shadow-sm py-3 fixed-top bg-white" >
   <div class="container-fluid px-5">
 
     <!-- Logo -->
@@ -52,44 +52,46 @@
 </nav>
 }
 @else {
- <nav  class="navbar navbar-expand-lg shadow-sm py-3 fixed-top bg-white" [ngClass]="col" [class]="currentLan === 'ar'? 'ar' : 'en' ">
-  <div class="container-fluid px-md-5">
+ <nav class="navbar navbar-expand-lg shadow-sm p-3 fixed-top bg-white" [ngClass]="col" [class]="currentLan === 'ar'? 'ar' : 'en'">
+  <div class="container-fluid px-md-5 d-flex align-items-center justify-content-between">
 
-    <button class="navbar-toggler border-0 shadow-none" type="button"
+    <button class="navbar-toggler border-0 shadow-none p-0" type="button"
             data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand fw-bold t-color fs-2 mx-auto mx-lg-0" routerLink="/home">
+    <a class="navbar-brand fw-bold t-color fs-2 m-0 mx-lg-0" routerLink="/home">
       Taqeemi
     </a>
 
-    <div class="collapse navbar-collapse d-none d-lg-block flex-grow-0">
+    <div class="collapse navbar-collapse d-none d-lg-block flex-grow-0 mx-auto">
       <ul class="navbar-nav d-flex flex-row gap-4 fw-bold">
         <li class="nav-item"><a class="nav-link active-link" routerLink="/home" routerLinkActive="active-link">الرئيسية</a></li>
         <li class="nav-item"><a class="nav-link text-dark" routerLink="/tracks" routerLinkActive="active-link">المسارات</a></li>
         <li class="nav-item"><a class="nav-link text-dark" routerLink="/exams" routerLinkActive="active-link">الاختبارات</a></li>
-          <li class="nav-item"><a class="nav-link text-dark" routerLink="/dashboard" routerLinkActive="active-link">لوحة التحكم</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" routerLink="/dashboard" routerLinkActive="active-link">لوحة التحكم</a></li>
       </ul>
     </div>
 
-    <div class="flex-grow-1 mx-2 mx-md-4 position-relative search-wrapper">
+    <div class="flex-grow-1 mx-4 position-relative search-wrapper d-none d-lg-block" style="max-width: 300px;">
       <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
       <input type="text" class="form-control rounded-pill bg-light border-0 ps-5" placeholder="بحث...">
     </div>
 
     <div class="dropdown">
-      <div class="d-flex align-items-center cursor-pointer border rounded-pill p-1 pe-2"
+      <div class="d-flex align-items-center cursor-pointer border rounded-pill p-1 pe-2 bg-white shadow-sm"
            data-bs-toggle="dropdown" aria-expanded="false">
         <img src="assets/user.png" class="rounded-circle" width="35" height="35" alt="User">
-        <div class="ms-2 d-none d-md-block text-end me-1">
+
+        <div class="ms-2 d-none d-sm-block text-end me-1">
           <span class="fw-bold d-block small lh-1">أحمد محمد</span>
         </div>
       </div>
+
       <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 p-2 t-profile-dropdown">
-        <li><a class="dropdown-item rounded-2 py-2" routerLink="/profile">ملفي الشخصي</a></li>
+        <li><a class="dropdown-item rounded-2 py-2 text-end" routerLink="/profile">ملفي الشخصي</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item rounded-2 py-2 text-danger" (click)="logout()">تسجيل الخروج</a></li>
+        <li><a class="dropdown-item rounded-2 py-2 text-danger text-end" (click)="logout()">تسجيل الخروج</a></li>
       </ul>
     </div>
 

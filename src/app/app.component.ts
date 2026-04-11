@@ -7,7 +7,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 
 @Component({
     selector: 'app-root',
-    imports: [CommonModule, RouterOutlet, FooterComponent],
+    imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
