@@ -1,0 +1,94 @@
+<div class="edit-profile-container p-lg-5 p-3" dir="rtl">
+
+  <div class="row mb-5 align-items-center bg-white p-4 rounded-4 shadow-sm mx-0">
+    <div class="col-md-8">
+      <h2 class="fw-bold text-cyan mb-1">تعديل حساب الطالب</h2>
+      <p class="text-muted mb-0">تحديث المعلومات الشخصية والدراسية الخاصة بك في منصة تقييمي</p>
+    </div>
+    <div class="col-md-4 text-md-start mt-3 mt-md-0">
+      <button class="btn btn-cyan rounded-pill px-4 fw-bold">حفظ التغييرات</button>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm rounded-4 p-4 text-center">
+        <div class="position-relative d-inline-block mx-auto mb-4">
+          <div class="profile-img-wrapper">
+            <img src="assets/user.png" class="rounded-circle img-thumbnail shadow-sm" width="150" height="150">
+            <label class="upload-btn shadow-sm">
+              <i class="fas fa-camera"></i>
+              <input type="file" hidden>
+            </label>
+          </div>
+        </div>
+        <h5 class="fw-bold">أحمد منصور</h5>
+        <p class="text-muted small">طالب • المستوى الذهبي</p>
+        <hr class="my-4 opacity-25">
+        <div class="text-start">
+          <label class="form-label text-muted small fw-bold">نبذة مختصرة</label>
+          <textarea class="form-control border-0 bg-light rounded-3" rows="3" placeholder="اكتب نبذة عنك..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+        <form>
+          <div class="mb-5">
+            <h6 class="fw-bold text-purple mb-4 border-bottom pb-2">
+              <i class="fas fa-user-circle me-2"></i>البيانات الشخصية
+            </h6>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">الاسم الأول</label>
+                <input type="text" class="form-control p-2 px-3 rounded-3" value="أحمد">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">اسم العائلة</label>
+                <input type="text" class="form-control p-2 px-3 rounded-3" value="منصور">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">رقم الهاتف</label>
+                <input type="text" class="form-control p-2 px-3 rounded-3" value="01012345678" dir="ltr">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">تاريخ الميلاد</label>
+                <input type="date" class="form-control p-2 px-3 rounded-3">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <h6 class="fw-bold text-purple mb-4 border-bottom pb-2">
+              <i class="fas fa-graduation-cap me-2"></i>المعلومات الدراسية
+            </h6>
+            <div class="row g-3">
+              <div class="col-md-12">
+                <label class="form-label small fw-bold">المدرسة / الجامعة</label>
+                <input type="text" class="form-control p-2 px-3 rounded-3" value="أكاديمية النخبة الدولية">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">السنة الدراسية</label>
+                <select class="form-select p-2 px-3 rounded-3">
+                  <option>السنة الأولى</option>
+                  <option>السنة الثانية</option>
+                  <option selected>السنة النهائية</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">التخصص</label>
+                <input type="text" class="form-control p-2 px-3 rounded-3" value="علوم الحاسب">
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-end gap-2 mt-4">
+            <button type="button" class="btn btn-light rounded-pill px-4">إلغاء</button>
+            <button type="submit" class="btn btn-cyan rounded-pill px-5 fw-bold text-white">حفظ التغييرات</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
