@@ -1,0 +1,116 @@
+<div class="exam-container p-lg-5 p-3" dir="rtl">
+  <div class="container">
+
+    @switch (currentStep()) {
+
+      @case ('subjects') {
+        <div class="text-center animate-in">
+          <h2 class="fw-bold text-cyan mb-5">اختر المادة الدراسية</h2>
+          <div class="row g-4 justify-content-center">
+            @for (s of ['العلوم', 'الرياضيات', 'الحاسب']; track s) {
+              <div class="col-md-4">
+                <div class="card p-4 border-0 shadow-sm clickable-card" (click)="selectSubject()">
+                  <i class="fas fa-book-open fa-3x text-cyan mb-3"></i>
+                  <h4 class="fw-bold">{{s}}</h4>
+                  <p class="text-muted small">ابدأ تقييم مهاراتك في مادة {{s}}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      @case ('difficulty') {
+        <div class="text-center animate-in">
+          <h2 class="fw-bold text-cyan mb-5">حدد مستوى الصعوبة</h2>
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-4" (click)="selectDifficulty()">
+              <div class="card p-4 border-0 shadow-sm border-bottom border-5 border-success clickable-card">
+                <h4 class="fw-bold text-success">سهل</h4>
+                <p class="text-muted mb-0">أسئلة تمهيدية</p>
+              </div>
+            </div>
+            <div class="col-md-4" (click)="selectDifficulty()">
+              <div class="card p-4 border-0 shadow-sm border-bottom border-5 border-warning clickable-card">
+                <h4 class="fw-bold text-warning">متوسط</h4>
+                <p class="text-muted mb-0">توازن في التحدي</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      @case ('quiz') {
+        <div class="row justify-content-center animate-in">
+          <div class="col-lg-8">
+            <div class="card quiz-card border-0 shadow-lg p-4 p-md-5 rounded-4">
+              <div class="d-flex justify-content-between mb-4 border-bottom pb-3">
+                <span class="badge bg-cyan-soft text-cyan p-2 px-3 rounded-pill fw-bold">
+                  سؤال {{ currentQuestionIndex() + 1 }} / {{ quizQuestions().length }}
+                </span>
+                <div class="fw-bold text-danger">
+                  <i class="far fa-clock me-2"></i> {{ formattedTime() }}
+                </div>
+              </div>
+
+              <h3 class="fw-bold mb-5">{{ quizQuestions()[currentQuestionIndex()].question }}</h3>
+
+              <div class="options-list d-flex flex-column gap-3">
+                @for (opt of quizQuestions()[currentQuestionIndex()].options; track $index) {
+                  <div class="option-item p-3 border rounded-4 d-flex align-items-center gap-3"
+                       [class.active]="userAnswers()[currentQuestionIndex()] === $index"
+                       (click)="selectOption($index)">
+                    <div class="dot"></div>
+                    <span class="fw-medium">{{ opt }}</span>
+                  </div>
+                }
+              </div>
+
+              <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                <button class="btn btn-light rounded-pill px-4 fw-bold" (click)="prevQuestion()" [disabled]="currentQuestionIndex() === 0">السابق</button>
+                <button class="btn btn-cyan rounded-pill px-5 fw-bold" [disabled]="userAnswers()[currentQuestionIndex()] === -1" (click)="nextQuestion()">
+                  {{ currentQuestionIndex() === 4 ? 'عرض النتيجة' : 'التالي' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      @case ('result') {
+        <div class="row justify-content-center animate-in">
+          <div class="col-lg-8">
+            <div class="card p-5 border-0 shadow-lg rounded-4 text-center">
+              <h1 class="display-4 fw-bold text-cyan mb-2">{{ finalScore() }}%</h1>
+              <p class="text-muted mb-5">تقرير أداء الطالب</p>
+
+              <div class="text-start mb-5">
+                <h5 class="fw-bold mb-4 border-bottom pb-2">مراجعة الإجابات:</h5>
+                @for (q of quizQuestions(); track $index) {
+                  <div class="p-3 rounded-3 mb-3" [class.bg-success-light]="userAnswers()[$index] === q.correct" [class.bg-danger-light]="userAnswers()[$index] !== q.correct">
+                    <div class="d-flex justify-content-between">
+                      <p class="fw-bold mb-1 small">س{{$index + 1}}: {{q.question}}</p>
+                      @if (userAnswers()[$index] === q.correct) {
+                        <span class="text-success small fw-bold">إجابة صحيحة</span>
+                      } @else {
+                        <span class="text-danger small fw-bold">إجابة خاطئة</span>
+                      }
+                    </div>
+                    <div class="small">
+                      إجابتك: {{ q.options[userAnswers()[$index]] }}
+                      @if (userAnswers()[$index] !== q.correct) {
+                        <br><span class="text-success fw-bold">الإجابة الصحيحة: {{ q.options[q.correct] }}</span>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+
+              <button class="btn btn-cyan rounded-pill px-5 py-2 fw-bold" (click)="resetAll()">العودة للرئيسية</button>
+            </div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

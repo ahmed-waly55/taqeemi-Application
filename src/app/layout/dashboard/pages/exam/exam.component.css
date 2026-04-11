@@ -1,0 +1,45 @@
+:host {
+  --cyan: #008b8b;
+  --bg-page: #f4f7f6;
+}
+
+.exam-container {
+  background-color: var(--bg-page);
+  min-height: 100vh;
+}
+
+.text-cyan { color: var(--cyan); }
+.btn-cyan { background-color: var(--cyan); color: white; border: none; }
+.btn-cyan:hover { background-color: #007373; color: white; }
+.bg-cyan-soft { background-color: #e0f7f7; }
+
+.clickable-card {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.option-item {
+  cursor: pointer;
+  transition: 0.2s;
+  background: white;
+}
+.option-item:hover { border-color: var(--cyan) !important; }
+.option-item.active {
+  background: #f0ffff;
+  border-color: var(--cyan) !important;
+}
+
+.bg-success-light { background-color: #e8f5e9; border: 1px solid #c8e6c9; }
+.bg-danger-light { background-color: #ffebee; border: 1px solid #ffcdd2; }
+
+.animate-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
