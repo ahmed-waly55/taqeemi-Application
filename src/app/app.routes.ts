@@ -6,7 +6,8 @@ export const routes: Routes = [
   {path:"dashboard" , title: "Dashboard", loadComponent: ()=> import("./layout/dashboard/dashboard.component").then(m=>m.DashboardComponent)},
   {path:"exams", title: "Exam", loadComponent: ()=> import("./layout/dashboard/pages/exam/exam.component").then(m=>m.ExamComponent)},
   {path:"profile" , title: "Profile", loadComponent: ()=> import("./layout/dashboard/pages/profile/profile.component").then(m=>m.ProfileComponent)},
-
+  {path:"tracks" , title: "Tracks", loadComponent: ()=> import("./layout/dashboard/pages/tracks/tracks.component").then(m=>m.TracksComponent)},
+  {path:"payment" , title: "Payment", loadComponent: ()=> import("./layout/dashboard/pages/payment/payment.component").then(m=>m.PaymentComponent)},
   {path:"login" ,title: "Login", loadComponent: ()=> import("./features/auth/login/login.component").then(m=>m.LoginComponent)},
   {path:"signup" , title: "Sign Up", loadComponent: ()=> import("./features/auth/sign-up/sign-up.component").then(m=>m.SignUpComponent)},
   {path:"activate" , title: "Activate Code", loadComponent: ()=> import("./features/activate-code/activate-code.component").then(m=>m.ActivateCodeComponent)},

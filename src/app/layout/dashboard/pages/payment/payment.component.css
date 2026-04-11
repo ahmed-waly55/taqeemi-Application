@@ -1,0 +1,57 @@
+:host {
+  --cyan: #008b8b;
+  --bg-gray: #f9fbff;
+}
+
+.payment-page {
+  background-color: var(--bg-gray);
+  min-height: 100vh;
+}
+
+.text-cyan { color: var(--cyan); }
+.btn-cyan { background-color: var(--cyan); }
+
+/* ستايل اختيار الوسيلة */
+.method-card {
+  cursor: pointer;
+  transition: 0.3s;
+  background: white;
+  border-width: 2px !important;
+  color: #6c757d;
+}
+
+.method-card:hover {
+  border-color: var(--cyan) !important;
+  color: var(--cyan);
+}
+
+.method-card.active {
+  background-color: #f0ffff;
+  border-color: var(--cyan) !important;
+  color: var(--cyan);
+}
+
+/* تحسين المدخلات */
+.form-control {
+  padding: 0.75rem 1.25rem;
+  border-color: #e2e8f0;
+}
+
+.form-control:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 139, 139, 0.1);
+}
+
+.ls-2 { letter-spacing: 2px; }
+
+.animate-fade {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rounded-pill-start { border-top-right-radius: 50rem !important; border-bottom-right-radius: 50rem !important; border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; }
+.rounded-pill-end { border-top-left-radius: 50rem !important; border-bottom-left-radius: 50rem !important; border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; }

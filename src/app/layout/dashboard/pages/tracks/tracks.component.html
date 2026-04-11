@@ -1,0 +1,79 @@
+<div class="levels-wrapper p-lg-5 p-3" dir="rtl">
+  <div class="container">
+
+    <div class="alert alert-white shadow-sm rounded-4 mb-5 border-start border-cyan border-5 py-3 d-flex justify-content-between align-items-center">
+      <div>
+        <h6 class="mb-1 fw-bold text-dark">المسار المشترك به حالياً:</h6>
+        <span class="badge bg-cyan-soft text-cyan fs-6">{{ activeSubscriptionPath() }}</span>
+      </div>
+      <i class="fas fa-user-graduate fa-2x text-light"></i>
+    </div>
+
+    <div class="row g-4">
+      @for (level of levels(); track level.id) {
+        <div class="col-md-3">
+          <div class="card level-card h-100 border-0 shadow-sm rounded-4 text-center p-4"
+               [class.is-active]="activeSubscriptionPath() === level.name"
+               [class.is-selected]="selectedLevel() === level.name"
+               (click)="onLevelClick(level.name)">
+            <div class="icon-box mb-3 mx-auto" [style.background-color]="level.color">
+              <i [class]="level.icon"></i>
+            </div>
+            <h5 class="fw-bold mb-0">{{ level.name }}</h5>
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (selectedLevel() !== '' && !showPaymentOptions()) {
+      <div class="card border-0 shadow-lg rounded-4 mt-5 animate-slide-up overflow-hidden">
+        <div class="card-body p-4 text-center">
+          <div class="text-danger mb-3"><i class="fas fa-exclamation-circle fa-3x"></i></div>
+          <h4 class="fw-bold">تغيير المسار التعليمي</h4>
+          <p class="text-muted">
+            انتبه! الانتقال إلى <b>{{ selectedLevel() }}</b> سيلغي اشتراكك الحالي في <b>{{ activeSubscriptionPath() }}</b>.
+            ستحتاج لدفع اشتراك جديد للمسار المختار.
+          </p>
+          <div class="d-flex gap-2 justify-content-center">
+            <button class="btn btn-danger rounded-pill px-4 fw-bold" (click)="openPaymentMethods()">موافق، الانتقال للدفع</button>
+            <button class="btn btn-light rounded-pill px-4" (click)="selectedLevel.set('')">تراجع</button>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (showPaymentOptions()) {
+      <div class="payment-options mt-5 animate-slide-up">
+        <h5 class="fw-bold mb-4 text-center">اختر وسيلة الدفع للمسار الجديد</h5>
+        <div class="row g-3 justify-content-center">
+          <div class="col-md-5">
+            <div routerLink="/payment" class="card payment-card p-4 border-0 shadow-sm text-center" (click)="completeTransaction()">
+              <i class="fas fa-credit-card fa-2x text-primary mb-3"></i>
+              <h6 class="fw-bold">دفع إلكتروني (فوري / كارت)</h6>
+              <p class="small text-muted mb-0">سيتم توجيهك لصفحة الدفع الآمن</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="card payment-card p-4 border-0 shadow-sm text-center" (click)="showCodeInput.set(true)">
+              <i class="fas fa-ticket-alt fa-2x text-warning mb-3"></i>
+              <h6 class="fw-bold">استخدام كود شحن</h6>
+              <p class="small text-muted mb-0">إدخال الكود المستلم من السنتر أو الموزع</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (showCodeInput() && showPaymentOptions()) {
+      <div class="code-input-section mt-4 p-4 bg-white rounded-4 shadow-sm animate-fade">
+        <label class="fw-bold mb-2">أدخل كود الشحن المكون من 12 رقم:</label>
+        <div class="d-flex gap-2">
+          <input type="text" class="form-control rounded-pill" placeholder="EX: 1234-5678-9012"
+                 (input)="promoCode.set($any($event.target).value)">
+          <button class="btn btn-cyan rounded-pill px-4 text-white fw-bold" (click)="submitCode()">تفعيل</button>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+:host { --cyan: #008b8b; }
+
+.bg-cyan-soft { background-color: #e0f7f7; }
+.text-cyan { color: var(--cyan); }
+.btn-cyan { background-color: var(--cyan); }
+
+.level-card {
+  cursor: pointer;
+  transition: 0.3s;
+  border: 3px solid transparent !important;
+}
+.level-card.is-active { border-color: var(--cyan) !important; background: #f0fdfa; }
+.level-card.is-selected { border-color: #dc3545 !important; background: #fff5f5; }
+
+/* كروت الدفع */
+.payment-card {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #eee !important;
+}
+.payment-card:hover {
+  border-color: var(--cyan) !important;
+  background-color: #f8ffff;
+  transform: scale(1.02);
+}
+
+.icon-box {
+  width: 50px; height: 50px; border-radius: 50%;
+  color: white; display: flex; align-items: center; justify-content: center;
+}
+
+.animate-slide-up { animation: slideUp 0.4s ease-out; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate-fade { animation: fadeIn 0.3s ease-in; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

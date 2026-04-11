@@ -1,0 +1,110 @@
+<div class="payment-page py-5" dir="rtl">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 20px;">
+          <h5 class="fw-bold mb-4 border-bottom pb-2 text-cyan">ملخص الدفع</h5>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-muted">المسار المختار:</span>
+            <span class="fw-bold">{{ selectedPath().name }}</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-muted">قيمة الاشتراك:</span>
+            <span class="fw-bold">{{ selectedPath().price }} {{ selectedPath().currency }}</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between align-items-center mb-0">
+            <span class="fw-bold">الإجمالي:</span>
+            <h4 class="fw-bold text-cyan mb-0">{{ selectedPath().price }} {{ selectedPath().currency }}</h4>
+          </div>
+          <p class="text-danger small mt-3">
+            <i class="fas fa-info-circle me-1"></i> عند إتمام الدفع، سيتم استبدال مسارك القديم بهذا المسار فوراً.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+          <h3 class="fw-bold mb-4">اختر وسيلة الدفع</h3>
+
+          <div class="row g-3 mb-5">
+            <div class="col-md-6">
+              <div class="method-card p-3 border rounded-4 text-center"
+                   [class.active]="paymentMethod() === 'card'"
+                   (click)="setPaymentMethod('card')">
+                <i class="fas fa-credit-card fa-2x mb-2"></i>
+                <h6 class="fw-bold mb-0">بطاقة بنكية / فوري</h6>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="method-card p-3 border rounded-4 text-center"
+                   [class.active]="paymentMethod() === 'code'"
+                   (click)="setPaymentMethod('code')">
+                <i class="fas fa-ticket-alt fa-2x mb-2"></i>
+                <h6 class="fw-bold mb-0">كود شحن (سنتر)</h6>
+              </div>
+            </div>
+          </div>
+
+          @if (paymentMethod() === 'card') {
+            <div class="payment-form animate-fade">
+              <div class="mb-3">
+                <label class="form-label small fw-bold">اسم صاحب الكارت</label>
+                <input type="text" class="form-control rounded-pill" placeholder="الاسم كما هو مكتوب">
+              </div>
+              <div class="mb-3">
+                <label class="form-label small fw-bold">رقم البطاقة</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-white border-end-0 rounded-pill-start"><i class="far fa-credit-card"></i></span>
+                  <input type="text" class="form-control border-start-0 rounded-pill-end" placeholder="**** **** **** ****">
+                </div>
+              </div>
+              <div class="row g-3 mb-4">
+                <div class="col-6">
+                  <label class="form-label small fw-bold">تاريخ الانتهاء</label>
+                  <input type="text" class="form-control rounded-pill" placeholder="MM/YY">
+                </div>
+                <div class="col-6">
+                  <label class="form-label small fw-bold">رمز (CVV)</label>
+                  <input type="password" class="form-control rounded-pill" placeholder="***">
+                </div>
+              </div>
+              <button class="btn btn-cyan w-100 rounded-pill py-3 fw-bold text-white shadow-sm"
+                      [disabled]="isProcessing()" (click)="processPayment()">
+                @if (isProcessing()) { <i class="fas fa-spinner fa-spin me-2"></i> جاري الدفع... }
+                @else { تأكيد الدفع الآن }
+              </button>
+            </div>
+          }
+
+          @if (paymentMethod() === 'code') {
+            <div class="code-form animate-fade">
+              <div class="alert alert-warning border-0 rounded-4 small">
+                يرجى إدخال الكود المكون من 12 خانة المطبوع على كارت الشحن الخاص بمنصة تقييمي.
+              </div>
+              <div class="mb-4">
+                <label class="form-label small fw-bold">رقم الكود</label>
+                <input type="text" class="form-control form-control-lg rounded-pill text-center ls-2"
+                       placeholder="0000-0000-0000"
+                       [(ngModel)]="promoCode">
+              </div>
+              <button class="btn btn-warning w-100 rounded-pill py-3 fw-bold shadow-sm"
+                      [disabled]="isProcessing() || promoCode().length < 5" (click)="redeemCode()">
+                تفعيل المسار الجديد
+              </button>
+            </div>
+          }
+
+          @if (paymentMethod() === null) {
+            <div class="text-center py-5 opacity-50">
+              <i class="fas fa-arrow-up fa-2x mb-3 d-block"></i>
+              <p>يرجى اختيار وسيلة دفع للمتابعة</p>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
